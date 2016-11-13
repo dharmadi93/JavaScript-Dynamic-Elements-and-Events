@@ -38,6 +38,36 @@ $(document).ready(() => {
     })
 })
 
+//create todo
+$(document).on('click', 'button[id="submitTodo"]', function (e) {
+    e.preventDefault()
+
+    $.ajax({
+        url: `http://localhost:3000/api/todo`,
+        method: 'post',
+        contentType: 'application/x-www-form-urlencoded',
+        data: {
+            title: $('input[name="title"]').val()
+        },
+        success: (data) => {
+            let html = `
+            <div id="rowTodo${data._id}" class="col-sm-12">
+                <span>
+                    <input type="checkbox" id="checkboxTodo#${data._id}" name="updateStatus">
+                </span>
+                <span id="title${data._id}">${data.title}</span>
+                <span class="pull-right">
+                    <button id="edit#${data._id}" name="titleEdit" class="btn btn-warning">Edit</button>
+                    <button id="delete#${data._id}" name="titleDelete" class="btn btn-danger">Delete</button>
+                </span>
+            </div>`
+
+            $('input[name="title"]').val("")
+            $('#rowOfTodos:last').append(html)
+        }
+    })
+})
+
 //delete todo
 $(document).on('click', 'button[name="titleDelete"]', function() {
     let id = this.id.split("#")
@@ -54,6 +84,7 @@ $(document).on('click', 'button[name="titleDelete"]', function() {
     })
 })
 
+//get todo for edit
 $(document).on('click', 'button[name="titleEdit"]', function () {
     let id = this.id.split("#")
     let todoId = id[1]
@@ -78,6 +109,7 @@ $(document).on('click', 'button[name="titleEdit"]', function () {
     })
 })
 
+//update todo
 $(document).on('click', 'button[id="submitEditTodo"]', function (e) {
     e.preventDefault()
     let todoId = $('input[name="todoId"]').val()
@@ -100,6 +132,7 @@ $(document).on('click', 'button[id="submitEditTodo"]', function (e) {
     })
 })
 
+//update todo status
 $(document).on('click', 'input[name="updateStatus"]', function () {
     let id = this.id.split("#")
     let todoId = id[1]

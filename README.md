@@ -11,6 +11,8 @@ npm install mongoose --save
 
 npm install cors --save
 
+npm install dotenv --save
+
 ```
 
 ## Install Library For Client Site

@@ -10,14 +10,14 @@ $(document).ready(() => {
                 if (data[i].status == true) {
                     todo.push(`
                 <span>
-                    <input type="checkbox" id="checkboxTodo${i}" checked>
+                    <input type="checkbox" id="checkboxTodo#${data[i]._id}" name="updateStatus" checked>
                 </span>
                 `)
                 }
                 else {
                     todo.push(`
                 <span>
-                    <input type="checkbox" id="checkboxTodo${i}">
+                    <input type="checkbox" id="checkboxTodo#${data[i]._id}" name="updateStatus">
                 </span>
                 `)
                 }
@@ -96,6 +96,24 @@ $(document).on('click', 'button[id="submitEditTodo"]', function (e) {
             $('input[name="todoId"]').val("")
             $('input[name="editTitle"]').val("")
             $(`#title${data._id}`).text(data.title)
+        }
+    })
+})
+
+$(document).on('click', 'input[name="updateStatus"]', function () {
+    let id = this.id.split("#")
+    let todoId = id[1]
+    var status = false
+
+    if (this.checked) status = true
+    else status = false
+
+    $.ajax({
+        url: `http://localhost:3000/api/todo/status/${todoId}`,
+        method: 'put',
+        contentType: 'application/x-www-form-urlencoded',
+        data: {
+            status: status
         }
     })
 })

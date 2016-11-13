@@ -26,3 +26,14 @@ Inside .bowerrc
 npm install bower -g
 bower install bootstrap --save
 ```
+
+### Endpoint
+
+| Endpoind              | HTTP      | Description               |
+| ----------            | -----     | ------------              |
+| api/todo              | GET       | Get all todo              |
+| api/todo/:id          | GET       | Get todo by id            |
+| api/todo              | POST      | Create todo               |
+| api/todo/:id          | DELETE    | Delete todo by id         |
+| api/todo/:id          | PUT       | Update todo by id         |
+| api/todo/status:id    | PUT       | Update status todo by id  |

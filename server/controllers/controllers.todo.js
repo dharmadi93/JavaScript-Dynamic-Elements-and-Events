@@ -30,7 +30,12 @@ module.exports = {
     },
 
     deleteTodo: (req, res) => {
-
+        Todo.findOneAndRemove({
+            _id: req.params.todoId
+        }, (err, data) => {
+            if (err) res.json(err)
+            else res.json(data)
+        })
     },
 
     updateTodo: (req, res) => {

@@ -53,6 +53,16 @@ module.exports = {
     },
 
     updateTodoStatus: (req, res) => {
-
+        Todo.findOneAndUpdate({
+            _id: req.params.todoId
+        }, {
+            status: req.body.status
+        }, {
+            new: true,
+            upsert: false
+        }, (err, data) => {
+            if (err) res.json(err)
+            else res.json(data)
+        })
     }
 }

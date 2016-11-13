@@ -29,7 +29,7 @@ npm install bower -g
 bower install bootstrap --save
 ```
 
-### Endpoint
+## Endpoint
 
 | Endpoind                  | HTTP      | Description               |
 | ----------                | -----     | ------------              |
@@ -39,3 +39,9 @@ bower install bootstrap --save
 | api/todo/:todoId          | DELETE    | Delete todo by id         |
 | api/todo/:todoId          | PUT       | Update todo by id         |
 | api/todo/status:todoId    | PUT       | Update status todo by id  |
+
+## .env Example
+
+```
+DATABASE = <mongodb://localhost/DATABASE_NAME>
+```

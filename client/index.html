@@ -8,6 +8,31 @@
 </head>
 <body>
 
+<div id="modalEditTodo" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Todo</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formEditTodo">
+                    <div class="form-group">
+                        <label for="EditTitle">Title:</label>
+                        <input type="text" id="editTitle" name="editTitle" class="form-control">
+                    </div>
+                    <button id="submitEditTodo" class="btn btn-success">Save</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12">

@@ -7,6 +7,7 @@ router.get('/', controllerTodo.getTodos)
 router.get('/:todoId', controllerTodo.getTodoById)
 router.post('/', controllerTodo.createDoto)
 router.delete('/:todoId', controllerTodo.deleteTodo)
+router.put('/:todoId', controllerTodo.updateTodo)
 
 
 module.exports = router;

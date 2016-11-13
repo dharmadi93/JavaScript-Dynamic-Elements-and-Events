@@ -39,7 +39,17 @@ module.exports = {
     },
 
     updateTodo: (req, res) => {
-
+        Todo.findOneAndUpdate({
+            _id: req.params.todoId
+        }, {
+            title: req.body.title
+        }, {
+            new: true,
+            upsert: false
+        }, (err, data) => {
+            if (err) res.json(err)
+            else res.json(data)
+        })
     },
 
     updateTodoStatus: (req, res) => {

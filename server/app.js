@@ -9,8 +9,8 @@ var bodyParser = require('body-parser');
 const cors = require('cors')
 
 const mongoose = require('mongoose')
-mongoose.connect(proccess.env.DATABASE)
-mongoose.Promise = global.promise
+mongoose.connect(process.env.DATABASE)
+mongoose.Promise = global.Promise
 
 var routes = require('./routes/index');
 

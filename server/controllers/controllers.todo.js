@@ -7,10 +7,18 @@ module.exports = {
 
     getTodoById: (req, res) => {
 
-    }
+    },
 
     createDoto: (req, res) => {
+        const todo = {
+            title: req.body.title,
+            status: false
+        }
 
+        Todo.create(todo, (err, data) => {
+            if (err) res.json(err)
+            else res.json(data)
+        })
     },
 
     deleteTodo: (req, res) => {
